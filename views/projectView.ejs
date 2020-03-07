@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/darkMode.css">
 
-    <title>Project Manager</title>
+    <title>Program Manager</title>
   </head>
   <body class="content">
 
@@ -30,11 +30,11 @@
         </div>
       </div>
     </div>
-    
+
     <br>
-  
+
     <div class="w3-section w3-row w3-margin" style="margin-top:46px;">
-      
+
       <br>
 
       <div id="info" class="w3-card w3-half w3-animate-left content w3-margin-bottom w3-mobile" style="width:38%;margin-right:2%">
@@ -42,58 +42,58 @@
         <div class="w3-container headers">
           <h2>Info</h2>
         </div>
-        
+
         <br>
-        
+
         <div class="w3-container">
           <p>Name: <%=name%> </p>
           <p>Type: <%=type%> </p>
         </div>
 
         <br>
-        
+
       </div>
-      
+
       <div id="files" class="w3-card content w3-animate-right w3-half w3-mobile w3-margin-bottom" style="width:60%">
-        
+
         <div class="w3-container headers">
           <h2>Files</h2>
         </div>
-        
+
         <br>
-        
+
         <% for(var i = 0, l = filelist.length; i < l; ++i) {%>
         <%   if (filelist[i].indexOf('.') >= 0) { %>
         <%     var link = "#"; %>
         <%   } else { %>
         <%     var link = "/file-view/" + name + "/" + filelist[i]; %>
         <%   } %>
-        
+
         <a href="<%=link%>">
           <div class="w3-padding w3-content">
             <div class="w3-left-align"><p><%= filelist[i] %></p></div>
           </div>
         </a>
         <% } %>
-        
+
       </div>
-      
+
       <div id="delete" class="w3-card content w3-animate-bottom w3-half w3-mobile" style="width:100%;margin-right:2%">
-        
+
         <div class="w3-container w3-red">
           <h2>Delete</h2>
         </div>
-        
+
         <br>
-        
+
         <div class="w3-content w3-padding ">
           <p>Make sure that this is what you want to do. <b>You will not be able to retrieve any data back after this operation.</b> Double-check this is the right project. Make sure everything you need is backed up.</p>
         </div>
-        
+
         <form action="/delete/<%=name%>" method="post" class="w3-section w3-margin w3-center">
           <button type="submit" value="Submit" class="w3-btn w3-center w3-red">Delete</button>
         </form>
-        
+
       </div>
 
   </body>

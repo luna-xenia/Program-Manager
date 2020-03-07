@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/darkMode.css">
 
-    <title>Project Manager</title>
+    <title>Program Manager</title>
   </head>
   <body class="content">
 
@@ -22,7 +22,7 @@
     <br>
 
     <div class="w3-section w3-row w3-margin" style="margin-top:46px;">
-      
+
       <br>
 
       <% if(error !== null){ %>
@@ -52,13 +52,13 @@
         </form>
 
       </div>
-      
+
       <div id="projectDisplay" class="w3-card content w3-animate-right w3-half w3-margin-bottom w3-mobile">
-        
+
         <div class="w3-container headers">
           <h2>All Projects</h2>
         </div>
-        
+
         <% for(const [ key, value ] of Object.entries(projectdict)) { %>
         <a class="content" href="/project-view/<%= key %>">
           <div class="content w3-content w3-white">
@@ -72,17 +72,17 @@
       </div>
 
     </div>
-    
+
     <div id="goToIDE" class="w3-card w3-animate-bottom w3-half w3-margin-bottom w3-mobile" style="width:98%;margin:1%">
-      
+
       <div class="w3-container headers">
         <h2>Go To IDE</h2>
       </div>
-      
+
       <form action="http://<%=url%>:3000" method="get" class="w3-section w3-margin w3-center">
         <button type="submit" value="Submit" class="w3-btn w3-center w3-blue">Go To IDE</button>
       </form>
-      
+
     </div>
 
   </body>
