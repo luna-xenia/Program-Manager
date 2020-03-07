@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/darkMode.css">
+
+    <title>Project Manager</title>
+  </head>
+  <body class="content">
+
+    <div class="w3-top">
+      <div class="w3-bar headers w3-card">
+        <a href="/#" class="w3-bar-item w3-button w3-hover-blue w3-padding-large">Home</a>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="w3-section w3-row w3-margin" style="margin-top:46px;">
+      
+      <br>
+
+      <% if(error !== null){ %>
+        <div class="w3-panel w3-pale-red w3-leftbar w3-border-red"><p><%= error %></p></div>
+      <% } %>
+
+      <div id="newProject" class="w3-card w3-animate-left w3-half w3-margin-bottom w3-mobile" style="width:48%;margin-right:2%">
+
+        <div class="w3-container headers">
+          <h2>Make New Project</h2>
+        </div>
+
+        <br>
+
+        <form action="/newproject" method="post" class="w3-padding w3-container">
+          <input name="projectName" placeholder="Project Name" class="w3-input content w3-animate-input w3-hover-shadow" type="text" style="width:50%"><br>
+
+          <select name="projectType" class="w3-select w3-margin-bottom content w3-hover-shadow" style="width:50%">
+            <option value="" disabled="" selected="">Choose Project Type</option>
+            <option value="staticWebPage">Static Web</option>
+            <option value="nodeWebApp">Node Web App</option>
+          </select>
+
+          <br>
+
+          <button class="w3-blue w3-btn w3-margin-bottom" type="submit" value="Submit">Submit</button>
+        </form>
+
+      </div>
+      
+      <div id="projectDisplay" class="w3-card content w3-animate-right w3-half w3-margin-bottom w3-mobile">
+        
+        <div class="w3-container headers">
+          <h2>All Projects</h2>
+        </div>
+        
+        <% for(const [ key, value ] of Object.entries(projectdict)) { %>
+        <a class="content" href="/project-view/<%= key %>">
+          <div class="content w3-content w3-white">
+            <div class="w3-half w3-center content w3-mobile w3-left-align"><p><%= key %></p></div>
+            <div class="w3-half w3-center content w3-hide-small w3-right-align"><p><%= value %></p></div>
+          </div>
+        </a>
+        <br>
+        <% } %>
+
+      </div>
+
+    </div>
+    
+    <div id="goToIDE" class="w3-card w3-animate-bottom w3-half w3-margin-bottom w3-mobile" style="width:98%;margin:1%">
+      
+      <div class="w3-container headers">
+        <h2>Go To IDE</h2>
+      </div>
+      
+      <form action="http://<%=url%>:3000" method="get" class="w3-section w3-margin w3-center">
+        <button type="submit" value="Submit" class="w3-btn w3-center w3-blue">Go To IDE</button>
+      </form>
+      
+    </div>
+
+  </body>
+</html>
